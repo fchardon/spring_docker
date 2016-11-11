@@ -1,6 +1,7 @@
 
 env.GIT_BRANCH = env.BRANCH_NAME
 
+url = null
 
 node {
    
@@ -16,14 +17,8 @@ node {
             // if (matcher) {
             //    echo "Building version ${matcher[0][1]}"
             //}
-            def envb = env.BRANCH_NAME;
-            def str = readFile('delivery/'+envb+'.properties')
-            def sr = new StringReader(str)
-            def props = new Properties()
-            props.load(sr)
-
-            def foobar = props.getProperty('server')
-            echo "Load property ${foobar}"
+            url = server();
+            echo "Load property ${url}"
     }
 
    stage('Run acceptance tests') {
@@ -40,4 +35,19 @@ node {
         sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@172.25.0.2:8080/manager/text/deploy?path=/hello&update=true"
    }
 
+
+
+}
+
+def server() {
+       def envb = env.BRANCH_NAME;
+       def str = readFile('delivery/'+envb+'.properties')
+       def sr = new StringReader(str)
+       def props = new Properties()
+       props.load(sr)
+
+       def url = props.getProperty('server')
+       url
+       //def user = props.getProperty('user')
+       //def pwd = props.getProperty('pwd')
 }
