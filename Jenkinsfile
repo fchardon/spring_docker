@@ -12,12 +12,18 @@ node {
     }
 
     stage('Check Version') {
-            def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-            if (matcher) {
-                echo "Building version ${matcher[0][1]}"
-            } else {
-                echo "No Building version"
-            }
+            // def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+            // if (matcher) {
+            //    echo "Building version ${matcher[0][1]}"
+            //}
+            def envb = env.BRANCH_NAME;
+            def str = readFile('delivery/${envb}.properties')
+            def sr = new StringReader(str)
+            def props = new Properties()
+            props.load(sr)
+
+            def foobar = props.getProperty('server')
+            echo "Load property ${foobar}"
     }
 
    stage('Run acceptance tests') {
