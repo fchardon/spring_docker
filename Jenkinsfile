@@ -7,14 +7,17 @@ node {
    stage('Build and Test') {
         echo 'Prepare for ' + env.BRANCH_NAME
         checkout scm
-        def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-        if (matcher) {
-            echo "Building version ${matcher[0][1]}"
-        } else {
-            echo "No Building version"
-        }
         def mvnHome = tool 'maven-3.3.9'
         sh "${mvnHome}/bin/mvn -B test"
+    }
+
+    stage('Check Version') {
+            def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+            if (matcher) {
+                echo "Building version ${matcher[0][1]}"
+            } else {
+                echo "No Building version"
+            }
     }
 
    stage('Run acceptance tests') {
