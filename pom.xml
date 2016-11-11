@@ -5,8 +5,14 @@
 	<artifactId>hello-world-war</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>Hello World Web Application Repository</name>
-	<description>Simplest possible Java Webapp</description>
+	<name>Simple BDD Application</name>
+	<description>Simple BDD Application</description>
+
+	<properties>
+		<jbehave-version>3.7.3</jbehave-version>
+		<jbehave-site-version>3.1.1</jbehave-site-version>
+
+	</properties>
 
 	<build>
 		<plugins>
@@ -23,7 +29,89 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 			</plugin>
+                <plugin>
+                    <groupId>org.jbehave</groupId>
+                    <artifactId>jbehave-maven-plugin</artifactId>
+                    <version>${jbehave-version}</version>
+                    <executions>
+                        <execution>
+                            <id>run-stories-as-embeddables</id>
+                            <phase>integration-test</phase>
+                            <configuration>
+                                <scope>test</scope>
+                                <includes>
+                                    <include>**/**eBiblioEnStoryEmbedder.java</include>
+                                </includes>
+                                <systemProperties>
+                                    <property>
+                                        <name>file.encoding</name>
+                                        <value>UTF-8</value>
+                                    </property>
+                                </systemProperties>
+                                <ignoreFailureInStories>true</ignoreFailureInStories>
+                                <ignoreFailureInView>false</ignoreFailureInView>
+                            </configuration>
+                            <goals>
+                                <goal>run-stories-as-embeddables</goal>
+                                <goal>unpack-view-resources</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-spring</artifactId>
+			<version>${jbehave-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave.site</groupId>
+			<artifactId>jbehave-site-resources</artifactId>
+			<version>${jbehave-site-version}</version>
+			<type>zip</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>${jbehave-version}</version>
+			<classifier>resources</classifier>
+			<type>zip</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.13.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+
+	</dependencies>
+
 
 </project>
