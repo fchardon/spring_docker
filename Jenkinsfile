@@ -18,7 +18,7 @@ node {
    stage('Deployed to Server') {
       node('dev') {
         echo 'Deployed in dev env'
-        sh('curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@172.25.0.2:8080/manager/text/deploy?path=/hello&update=true')
+        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@172.25.0.2:8080/manager/text/deploy?path=/hello&update=true"
       }
 
       node('uat') {

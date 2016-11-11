@@ -28,8 +28,8 @@
       <file leaf-file-name="Jenkinsfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="144" selection-start-line="25" selection-start-column="144" selection-end-line="25" selection-end-column="144" />
+            <state relative-caret-position="300">
+              <caret line="20" column="143" selection-start-line="20" selection-start-column="143" selection-end-line="20" selection-end-column="143" />
               <folding />
             </state>
           </provider>
@@ -1089,7 +1089,7 @@
       <option name="presentableId" value="Default" />
       <updated>1478438623305</updated>
       <workItem from="1478438627601" duration="1689000" />
-      <workItem from="1478861276741" duration="8440000" />
+      <workItem from="1478861276741" duration="8594000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1478861425224</created>
@@ -1168,7 +1168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478883228281</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Deploy in tomcat_dev">
+      <created>1478887463327</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1478887463327</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1204,7 +1211,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10129000" />
+    <option name="totallyTimeSpent" value="10283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1294,7 +1301,8 @@
     <MESSAGE value="Add JBehave Report &#10;&gt; Change folder name" />
     <MESSAGE value="Add Serenity Support" />
     <MESSAGE value="Add Serinity Feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Serinity Feature" />
+    <MESSAGE value="Deploy in tomcat_dev" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deploy in tomcat_dev" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1752,8 +1760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="144" selection-start-line="25" selection-start-column="144" selection-end-line="25" selection-end-column="144" />
+        <state relative-caret-position="300">
+          <caret line="20" column="143" selection-start-line="20" selection-start-column="143" selection-end-line="20" selection-end-column="143" />
           <folding />
         </state>
       </provider>
