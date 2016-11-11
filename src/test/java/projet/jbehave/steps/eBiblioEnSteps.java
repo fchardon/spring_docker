@@ -27,15 +27,15 @@ import static org.hamcrest.Matchers.equalTo;
 @UsingSteps
 public class eBiblioEnSteps {
 
-    LivreRepository livreRepository;
-    AdherentRepository adherentRepository;
+    static LivreRepository livreRepository;
+    static AdherentRepository adherentRepository;
 
-    Calculateur calculateur;
+    static Calculateur calculateur;
 
-    Adherent adherent;
-    Livre livre;
+    static Adherent adherent;
+    static Livre livre;
 
-    LocalDate dateOfTheDay;
+    static LocalDate dateOfTheDay;
     private BigDecimal prixCalcule;
 
     @AfterStory
@@ -49,6 +49,7 @@ public class eBiblioEnSteps {
     @BeforeStory
     public void init() {
         this.calculateur = new Calculateur(new HashMap<Integer,Integer>());
+        this.calculateur.addRule(1, 1);
     	livreRepository = LivreRepositoryMock.getInstance();
         adherentRepository = AdherentRepositoryMock.getInstance();
     }
