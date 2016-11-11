@@ -17,7 +17,7 @@ node {
             //    echo "Building version ${matcher[0][1]}"
             //}
             def envb = env.BRANCH_NAME;
-            def str = readFile('delivery/'+${envb}+'.properties')
+            def str = readFile('delivery/'+envb+'.properties')
             def sr = new StringReader(str)
             def props = new Properties()
             props.load(sr)
