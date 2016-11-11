@@ -1,6 +1,12 @@
-node('dev') {
+
+env.GIT_BRANCH = env.BRANCH_NAME
+
+
+node {
    
    stage('Build and Test') {
+        echo 'Prepare for ${env.BRANCH_NAME}'
+
         checkout scm
         def mvnHome = tool 'maven-3.3.9'
         sh "${mvnHome}/bin/mvn -B test"
