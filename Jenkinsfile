@@ -31,8 +31,8 @@ node {
    }
 
    stage('Deployed to Server') {
-        echo 'Deployed in dev env'
-        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@172.25.0.2:8080/manager/text/deploy?path=/hello&update=true"
+        echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
+        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
    }
 
 
