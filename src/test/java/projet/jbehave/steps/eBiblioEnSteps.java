@@ -14,8 +14,8 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Assert;
-import projet.ebiblio.domain.adherent.AdherentRepositoryMock;
-import projet.ebiblio.domain.livre.LivreRepositoryMock;
+import projet.jbehave.domain.adherent.AdherentRepositoryMock;
+import projet.jbehave.domain.livre.LivreRepositoryMock;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

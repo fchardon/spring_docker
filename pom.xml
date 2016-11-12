@@ -137,8 +137,9 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
                     <includes>
-                        <include>**/runner/*.java</include>
+                        <include>**/*.java</include>
                     </includes>
+					<testFailureIgnore>true</testFailureIgnore>
                 </configuration>
                 <executions>
                     <execution>

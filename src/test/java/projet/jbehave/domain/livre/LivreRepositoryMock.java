@@ -1,4 +1,4 @@
-package projet.ebiblio.domain.livre;
+package projet.jbehave.domain.livre;
 
 import com.project.bddsimple.domain.exception.EntityNotFoundException;
 import com.project.bddsimple.domain.livre.Livre;

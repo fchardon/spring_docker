@@ -2,6 +2,9 @@ In order to make the most appropriate purchase decisions
 As a buyer
 I want to be able to place items I want to buy in a virtual cart before placing my order
 
+Meta:
+@tag capability:a capability
+
 Scenario: Price calculation for 1 year of tenure
 
 Given we are the 2016/10/01.

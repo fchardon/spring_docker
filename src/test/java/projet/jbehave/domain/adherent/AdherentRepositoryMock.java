@@ -1,4 +1,4 @@
-package projet.ebiblio.domain.adherent;
+package projet.jbehave.domain.adherent;
 
 import com.project.bddsimple.domain.exception.EntityNotFoundException;
 import com.project.bddsimple.domain.tier.Adherent;

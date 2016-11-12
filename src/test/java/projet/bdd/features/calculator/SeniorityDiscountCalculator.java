@@ -8,6 +8,7 @@ import net.serenitybdd.jbehave.SerenityStory;
 public class SeniorityDiscountCalculator extends SerenityStory {
 
         public SeniorityDiscountCalculator() {
-            runSerenity().inASingleSession();
+            runSerenity().
+                    inASingleSession();
         }
     }
