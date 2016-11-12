@@ -30,9 +30,18 @@ node {
       publishHTML(target: [reportDir:'target/site/serenity', reportFiles: 'index.html', reportName: 'BDD report'])
    }
 
+   stage('Data migration') {
+       echo "Check database version"
+       echo "Apply database update"
+   }
+
    stage('Deployed to Server') {
-        echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
-        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
+        if(url) {
+            echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
+            sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
+        } else {
+            error("No properties defined for ${env.BRANCH_NAME} environment")
+        }
    }
 
 
