@@ -6,6 +6,18 @@ url = null
 node {
    
    stage('Build and Test') {
+
+        def originalV = version();
+        def major = originalV[1];
+        def minor = originalV[2];
+        def patch = originalV[3];
+        //def patch  = Integer.parseInt(originalV[3]) + 1;
+        def v = "${major}.${minor}.${patch}"
+        if (v) {
+           echo "Building version ${v}"
+           writeFile file: "delivery/application.properties", text: "version=${v}"
+        }
+
         echo 'Prepare for ' + env.BRANCH_NAME
         checkout scm
         def mvnHome = tool 'maven-3.3.9'
@@ -59,4 +71,9 @@ def server() {
        url
        //def user = props.getProperty('user')
        //def pwd = props.getProperty('pwd')
+}
+
+def version() {
+    def matcher = readFile('pom.xml') =~ '<version>(\\d*)\\.(\\d*)\\.(\\d*)(-SNAPSHOT)*</version>'
+    matcher ? matcher[0] : null
 }
