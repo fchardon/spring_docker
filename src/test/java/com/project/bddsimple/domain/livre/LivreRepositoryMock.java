@@ -1,9 +1,6 @@
-package projet.jbehave.domain.livre;
+package com.project.bddsimple.domain.livre;
 
 import com.project.bddsimple.domain.exception.EntityNotFoundException;
-import com.project.bddsimple.domain.livre.Livre;
-import com.project.bddsimple.domain.livre.LivreRepository;
-import com.project.bddsimple.domain.livre.Reference;
 
 import java.util.ArrayList;
 import java.util.List;

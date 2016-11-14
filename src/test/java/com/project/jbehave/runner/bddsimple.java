@@ -1,9 +1,9 @@
-package projet.jbehave.runner;
+package com.project.jbehave.runner;
 
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.io.CodeLocations;
 import org.jbehave.core.io.StoryFinder;
-import projet.jbehave.bddSimpleEmbedder;
+import com.project.jbehave.bddSimpleEmbedder;
 
 import java.net.URL;
 import java.util.List;

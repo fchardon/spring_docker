@@ -1,4 +1,4 @@
-package projet.jbehave.domain.other;
+package com.project.bddsimple.domain.other;
 
 /**
  * Created by florent on 19/10/2016.

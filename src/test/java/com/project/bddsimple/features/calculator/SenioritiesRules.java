@@ -1,4 +1,4 @@
-package projet.bdd.features.calculator;
+package com.project.bddsimple.features.calculator;
 
 import net.serenitybdd.jbehave.SerenityStory;
 

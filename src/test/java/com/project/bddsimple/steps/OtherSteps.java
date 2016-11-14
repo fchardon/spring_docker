@@ -1,4 +1,4 @@
-package projet.jbehave.steps;
+package com.project.bddsimple.steps;
 
 public class OtherSteps {
 

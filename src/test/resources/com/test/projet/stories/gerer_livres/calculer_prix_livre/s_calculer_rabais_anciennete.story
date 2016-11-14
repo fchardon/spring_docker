@@ -1,6 +1,6 @@
 
 Etant donné les Histoires:
-com/test/projet/stories/gerer_livres/regles/regles_anciennete.story
+com/test/com.project/stories/gerer_livres/regles/regles_anciennete.story
 
 Scénario: Calcul de prix avec 1 an d'ancienneté
 

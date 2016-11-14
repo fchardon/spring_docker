@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <context:component-scan base-package="com.project.controller" />
+    <context:component-scan base-package="com.com.project.controller" />
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">

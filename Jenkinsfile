@@ -49,11 +49,13 @@ node {
    }
 
    stage('Deployed to Server') {
+        echo "Deployed in ${env.BRANCH_NAME} environment to server ${url}"
+        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
 
-        for (i in url) {
+        /*for (i in url) {
             echo "Deployed in ${env.BRANCH_NAME} environment to server ${i}"
             sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${i}:8080/manager/text/deploy?path=/hello&update=true"
-        }
+        }*/
 
    }
 

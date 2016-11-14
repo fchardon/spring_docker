@@ -1,4 +1,4 @@
-package projet.jbehave.steps;
+package com.project.bddsimple.features.calculator;
 
 import com.project.bddsimple.domain.livre.Livre;
 import com.project.bddsimple.domain.livre.LivreRepository;
@@ -14,8 +14,8 @@ import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Assert;
-import projet.jbehave.domain.adherent.AdherentRepositoryMock;
-import projet.jbehave.domain.livre.LivreRepositoryMock;
+import com.project.bddsimple.domain.adherent.AdherentRepositoryMock;
+import com.project.bddsimple.domain.livre.LivreRepositoryMock;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -49,8 +49,9 @@ public class eBiblioEnSteps {
     @BeforeStory
     public void init() {
         this.calculateur = new Calculateur(new HashMap<Integer,Integer>());
+        this.calculateur.addRule(0, 0);
         this.calculateur.addRule(1, 1);
-    	livreRepository = LivreRepositoryMock.getInstance();
+        livreRepository = LivreRepositoryMock.getInstance();
         adherentRepository = AdherentRepositoryMock.getInstance();
     }
 

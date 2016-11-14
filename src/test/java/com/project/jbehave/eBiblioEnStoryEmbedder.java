@@ -1,4 +1,4 @@
-package projet.jbehave;
+package com.project.jbehave;
 
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
@@ -19,7 +19,7 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
-import projet.jbehave.steps.eBiblioEnSteps;
+import com.project.bddsimple.features.calculator.eBiblioEnSteps;
 
 import java.net.URL;
 import java.util.List;

@@ -1,5 +1,5 @@
 
-GivenStories:com/test/projet/stories/rent_books/rules/seniorities_rules.story
+GivenStories:com/test/com.project/stories/rent_books/rules/seniorities_rules.story
 
 Scenario: Price calculation for 1 year of tenure
 

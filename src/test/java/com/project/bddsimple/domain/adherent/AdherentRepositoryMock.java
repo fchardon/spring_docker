@@ -1,4 +1,4 @@
-package projet.jbehave.domain.adherent;
+package com.project.bddsimple.domain.adherent;
 
 import com.project.bddsimple.domain.exception.EntityNotFoundException;
 import com.project.bddsimple.domain.tier.Adherent;
