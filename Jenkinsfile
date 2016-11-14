@@ -15,8 +15,7 @@ node {
         def v = "${major}.${minor}.${patch}"
         if (v) {
            echo "Building version ${v}"
-           writeFile file: "src/main/resources/config.properties", text: "servername=\
-                                                                          appversion=1.0.0"
+           writeFile file: "src/main/resources/myconfig.properties", text: "servername=MyTest\nappversion=1.0.0"
         }
 
         echo 'Prepare for ' + env.BRANCH_NAME
@@ -49,8 +48,9 @@ node {
    }
 
    stage('Deployed to Server') {
-        echo "Deployed in ${env.BRANCH_NAME} environment to server ${url}"
-        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
+        def ser = url [0]
+        echo "Deployed in ${env.BRANCH_NAME} environment to server ser"
+        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${ser}:8080/manager/text/deploy?path=/hello&update=true"
 
         /*for (i in url) {
             echo "Deployed in ${env.BRANCH_NAME} environment to server ${i}"
