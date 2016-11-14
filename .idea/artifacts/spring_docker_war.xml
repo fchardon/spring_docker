@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring_docker:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="hello-world-war-1.0.1.war">
+      <element id="artifact" artifact-name="spring_docker:war exploded" />
+    </root>
+  </artifact>
+</component>
