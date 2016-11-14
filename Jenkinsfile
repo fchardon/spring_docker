@@ -7,6 +7,9 @@ node {
    
    stage('Build and Test') {
 
+        echo 'Prepare for ' + env.BRANCH_NAME
+        checkout scm
+
         def originalV = version();
         def major = originalV[1];
         def minor = originalV[2];
@@ -15,8 +18,6 @@ node {
         def v = "${major}.${minor}.${patch}"
 
 
-        echo 'Prepare for ' + env.BRANCH_NAME
-        checkout scm
         if (v) {
                    echo "Building version ${v}"
                    writeFile file: "src/main/resources/myconfig.properties", text: "servername=MyTest\nappversion=1.0.0"
