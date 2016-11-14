@@ -53,6 +53,8 @@ node {
    stage('Deployed to Server') {
         def ser = url [0]
         echo "Deployed in ${env.BRANCH_NAME} environment to server ser"
+        sh "curl http://admin:admin@${ser}:8080/manager/text/undeploy?path=/hello"
+        sleep 20
         sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${ser}:8080/manager/text/deploy?path=/hello&update=true"
 
         /*for (i in url) {
