@@ -13,13 +13,14 @@ node {
         def patch = originalV[3];
         //def patch  = Integer.parseInt(originalV[3]) + 1;
         def v = "${major}.${minor}.${patch}"
-        if (v) {
-           echo "Building version ${v}"
-           writeFile file: "src/main/resources/myconfig.properties", text: "servername=MyTest\nappversion=1.0.0"
-        }
+
 
         echo 'Prepare for ' + env.BRANCH_NAME
         checkout scm
+        if (v) {
+                   echo "Building version ${v}"
+                   writeFile file: "src/main/resources/myconfig.properties", text: "servername=MyTest\nappversion=1.0.0"
+                }
         def mvnHome = tool 'maven-3.3.9'
         sh "${mvnHome}/bin/mvn -B test"
     }
