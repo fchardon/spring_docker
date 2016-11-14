@@ -18,9 +18,10 @@ node {
         def v = "${major}.${minor}.${patch}"
 
 
+
         if (v) {
                    echo "Building version ${v}"
-                   writeFile file: "src/main/resources/config.properties", text: "servername=MyTest\nappversion=${v}"
+                   writeFile file: "src/main/resources/myConfig.properties", text: "servername=MyTest\nappversion=${v}"
                 }
         def mvnHome = tool 'maven-3.3.9'
         sh "${mvnHome}/bin/mvn clean -B test"
