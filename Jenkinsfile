@@ -5,7 +5,7 @@ url = null
 
 node {
    
-   /*stage('Build and Test') {
+   stage('Build and Test') {
 
         def originalV = version();
         def major = originalV[1];
@@ -24,13 +24,13 @@ node {
         sh "${mvnHome}/bin/mvn -B test"
     }
 
-    stage('Check Version') {
+    stage('Load server properties') {
             // def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
             // if (matcher) {
             //    echo "Building version ${matcher[0][1]}"
             //}
             url = server();
-            echo "Load property ${url}"
+            //echo "Load property ${url}"
     }
 
    stage('Run acceptance tests') {
@@ -45,16 +45,18 @@ node {
    stage('Data migration') {
        echo "Check database version"
        echo "Apply database update"
-   }*/
+   }
 
    stage('Deployed to Server') {
-        checkout scm
-
-        url = server();
 
         for (i in url) {
-                echo i
-            }
+            echo "Deployed in ${env.BRANCH_NAME} environment to server ${i}"
+            sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${i}:8080/manager/text/deploy?path=/hello&update=true"
+
+            echo  'Starting deploy'
+            sleep 20
+            echo  'Deploy ended'
+        }
 
        /* if(url) {
             echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
