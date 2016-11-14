@@ -2,6 +2,7 @@
 env.GIT_BRANCH = env.BRANCH_NAME
 
 url = null
+v = null
 
 node {
    
@@ -15,7 +16,7 @@ node {
         def minor = originalV[2];
         def patch = originalV[3];
         //def patch  = Integer.parseInt(originalV[3]) + 1;
-        def v = "${major}.${minor}.${patch}"
+        v = "${major}.${minor}.${patch}"
 
 
 
@@ -55,7 +56,7 @@ node {
         echo "Deployed in ${env.BRANCH_NAME} environment to server ser"
         sh "curl http://admin:admin@${ser}:8080/manager/text/undeploy?path=/hello"
         sleep 20
-        sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${ser}:8080/manager/text/deploy?path=/hello&update=true"
+        sh "curl --upload-file target/hello-world-war-${v}.war http://admin:admin@${ser}:8080/manager/text/deploy?path=/hello&update=true"
 
         /*for (i in url) {
             echo "Deployed in ${env.BRANCH_NAME} environment to server ${i}"
