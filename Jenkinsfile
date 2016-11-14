@@ -48,6 +48,8 @@ node {
    }*/
 
    stage('Deployed to Server') {
+        checkout scm
+
         url = server();
 
         for (i in url) {
