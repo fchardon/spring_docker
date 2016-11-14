@@ -11,6 +11,8 @@
 	<properties>
         <maven.failsafe.version>2.19</maven.failsafe.version>
 
+		<spring.version>3.2.13.RELEASE</spring.version>
+		<jstl.version>1.2</jstl.version>
 
         <jbehave-version>3.7.3</jbehave-version>
 		<jbehave-site-version>3.1.1</jbehave-site-version>
@@ -24,6 +26,18 @@
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-core</artifactId>
