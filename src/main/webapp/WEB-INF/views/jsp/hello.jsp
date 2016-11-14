@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Hello Demo</title>
+<title>Hello Demo 2</title>
 </head>
 <body>
 	<h1>${title}</h1>
