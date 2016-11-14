@@ -15,7 +15,8 @@ node {
         def v = "${major}.${minor}.${patch}"
         if (v) {
            echo "Building version ${v}"
-           writeFile file: "delivery/application.properties", text: "version=${v}"
+           writeFile file: "src/main/resources/config.properties", text: "servername=\
+                                                                          appversion=1.0.0"
         }
 
         echo 'Prepare for ' + env.BRANCH_NAME
@@ -52,18 +53,8 @@ node {
         for (i in url) {
             echo "Deployed in ${env.BRANCH_NAME} environment to server ${i}"
             sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${i}:8080/manager/text/deploy?path=/hello&update=true"
-
-            echo  'Starting deploy'
-            sleep 20
-            echo  'Deploy ended'
         }
 
-       /* if(url) {
-            echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
-            sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
-        } else {
-            error("No properties defined for ${env.BRANCH_NAME} environment")
-        }*/
    }
 
 
