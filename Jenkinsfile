@@ -5,7 +5,7 @@ url = null
 
 node {
    
-   stage('Build and Test') {
+   /*stage('Build and Test') {
 
         def originalV = version();
         def major = originalV[1];
@@ -45,15 +45,21 @@ node {
    stage('Data migration') {
        echo "Check database version"
        echo "Apply database update"
-   }
+   }*/
 
    stage('Deployed to Server') {
-        if(url) {
+        url = server();
+
+        for (i in url) {
+                echo i
+            }
+
+       /* if(url) {
             echo 'Deployed in ' + env.BRANCH_NAME + ' environment'
             sh "curl --upload-file target/hello-world-war-1.0.0.war http://admin:admin@${url}:8080/manager/text/deploy?path=/hello&update=true"
         } else {
             error("No properties defined for ${env.BRANCH_NAME} environment")
-        }
+        }*/
    }
 
 
@@ -67,7 +73,7 @@ def server() {
        def props = new Properties()
        props.load(sr)
 
-       def url = props.getProperty('server')
+       def url = props.getProperty('server').split(";")
        url
        //def user = props.getProperty('user')
        //def pwd = props.getProperty('pwd')
